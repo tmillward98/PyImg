@@ -18,4 +18,3 @@ plt.hist(equalImage.flatten(), 256, [0, 256], color='r')
 plt.xlim([0,256])
 plt.legend(('cdf', 'histogram'), loc='upper left')
 plt.show()
-
