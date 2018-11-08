@@ -1,4 +1,5 @@
 from PIL import Image
+import cv2 as cv
 
 def calcCDF(count, greyArray):
     resultArray = [0] * 256
@@ -13,7 +14,7 @@ def computeHistogram(pixelArray, count, resultArray):
     return newArray
 
 #Load the image
-im = Image.open('PandaNoise.bmp')
+im = Image.open('res/PandaNoise.bmp')
 
 #Load the pixel values into an array, determine the dimensions of the image
 pixelArray = im.load()
@@ -37,6 +38,8 @@ for x in range(width):
 
 histCDF = calcCDF(pixelCount, greyLevels)
 histNew = computeHistogram(cdfArray, pixelCount, histCDF)
+
+cv.imwrite('equimg', histNew)
 
 print(histNew)
 
